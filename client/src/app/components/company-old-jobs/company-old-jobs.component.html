@@ -1,0 +1,40 @@
+@if(all_jobs.length>0){
+<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 lg:w-[90%] mx-auto">
+  
+        @for (item of all_jobs; track item.id) {
+            <div class="card px-3 bg-white py-4 font-[PoppinsRegular] rounded-md mx-2 my-2 overflow-hidden border hover:shadow-md transition-all duration-300">
+              <div class="card-body overflow-hidden transition-all duration-300   ">
+                    <img src={{backend_uri+item.image}} alt="photos" class="hover:scale-110 transition-all duration-300  object-cover object-top w-full h-[200px]  "/>
+              </div>
+              <div class="card-footer flex justify-between items-center gap-x-2 px-5 py-3">
+                       <div class=" gap-x-2 flex items-start justify-start flex-col">
+                        <h1 class="text-[16px] capitalize text-start">{{item.title}}</h1>
+                        <p class="text-xs capitalize text-start ">{{item.short_desc.slice(0,40)+"..."}}</p>
+                           <!-- <img src="https://www.recruiter.com/recruiting/wp-content/uploads/2022/06/Writing-job-descriptions-for-startups.jpg" class="w-12 h-12 object-cover object-top rounded-full" alt="">
+                           <a routerLink="/company/dadd"  class="py-1 px-4 rounded-full bg-zinc-200 font-[PoppinsRegular] text-xs cursor-pointer">{{'@'}}TechMart</a> -->
+                       </div>
+                        <button (click)="deleteJob(item.id)" class="px-4 cursor-pointer py-2 bg-black flex gap-x-2 items-center   text-white rounded-md">Delete <mat-icon fontIcon="delete"></mat-icon> </button>
+              </div>
+            
+        </div>
+           }
+           
+           
+           
+        </div>
+    }
+    @else {
+        <!-- <h1 class="text-center text-2xl font-[PoppinsRegular]">Currently You Have No Job</h1> -->
+
+        <div class="card px-3 bg-white py-4 font-[PoppinsRegular] rounded-md mx-2 my-2 overflow-hidden border hover:shadow-md transition-all duration-300">
+            <div class="card-body overflow-hidden transition-all duration-300   flex justify-center">
+                <img src="../../../assets/not-found.svg" alt="photos" class="hover:scale-110 transition-all duration-300  object-cover object-top w-[20%] h-[200px]  "/>
+            </div>
+            <div class="card-footer flex justify-between items-center gap-x-2 px-5 py-3">
+                <h1 class="text-2xl capitalize text-center mx-auto">Not Found</h1>
+                
+                    
+            </div>
+          
+      </div>
+    }

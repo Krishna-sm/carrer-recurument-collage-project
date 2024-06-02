@@ -1,0 +1,96 @@
+<p-toast/>
+
+@if (loading) {
+    <app-loader/>
+}
+
+@else {<div class=" w-full lg:w-[85%] mx-auto my-10 min-h-[50vh] shadow-sm rounded-md ">
+  <div class="mx-auto py-10 bg-white overflow-hidden">
+    <img src="https://images.pexels.com/photos/1021685/pexels-photo-1021685.jpeg" alt="" class="w-[200px] h-[200px] object-cover  rounded-full border-2 hover:scale-105 transition-all duration-300 border-zinc-300 mx-auto  p-1">
+    <div class="flex gap-x-3 mx-auto justify-center item-center py-5">
+        <h1 class="font-[PoppinsRegular] text-2xl capitalize">{{profile.name}}</h1>
+        <!-- <button class="px-4 py-1 bg-blue-500 text-white rounded-lg">follow</button> -->
+        <!-- <div class="mb-3 flex justify-center items-center">
+          <button (click)="openDialogs()" title="Add Job" class="px-4 py-2 bg-black  text-white rounded-md  flex items-center">
+            Post A New Job <mat-icon fontIcon="add"></mat-icon>
+          </button>
+        </div> -->
+    </div>
+    
+    <div class= " w-[90%] lg:w-1/2 mx-auto  shadow-sm bg-violet-200 py-4 rounded-md flex  items-center justify-center gap-x-20">
+        <p class="text-center text-sm px-5">
+         <strong><span>Company Email : </span></strong> <span class="capitalize">{{profile.email}}</span>
+          
+          </p>
+        @if(user){  <button  (click)="follow()" class="bg-blue-500 px-4 py-2 flex items-center gap-x-2 text-white rounded-md">follow <mat-icon fontIcon="favorite" /> </button>}
+          
+    </div>
+
+    <!-- <ul class="flex space-x-8 mb-4 justify-center items-center">
+        <li>
+          <span class="font-semibold">{{profile.email}}</span>
+          Email
+        </li>
+
+        <li>
+          <span class="font-semibold">40.5k</span>
+          followers
+        </li>
+        <li>
+           
+        </li>
+      </ul> -->
+
+    <!-- <div class= " w-[90%] lg:w-1/2 mx-auto text-violet-700 shadow-sm bg-violet-200 py-4 rounded-md ">
+        <p class="text-center text-sm px-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quod quasi nobis?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quod quasi nobis?
+          </p>
+    </div> -->
+
+
+</div>
+    <div class="mx-auto my-10 py-10 bg-white ">
+
+          @if(posts.length>1){
+
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-5 lg:w-[90%] mx-auto">
+              
+              @for (item of posts; track item.id) {
+                <div class="card px-3 bg-white py-4 rounded-md mx-2 my-2 overflow-hidden border hover:shadow-md transition-all duration-300">
+                  <div class="card-body overflow-hidden transition-all duration-300   ">
+                    <img src={{backend_uri+item.image}} alt="photos" class="hover:scale-110 transition-all duration-300  object-cover object-top w-full h-[200px]  ">
+                  </div>
+                  <div class="card-footer flex justify-between items-center gap-x-2 px-5 py-3">
+                    <div class=" gap-x-2 flex items-center">
+                      <img src="https://www.recruiter.com/recruiting/wp-content/uploads/2022/06/Writing-job-descriptions-for-startups.jpg" class="w-12 h-12 object-cover object-top rounded-full" alt="">
+                      <a routerLink="/company/{{item.user.id}}"  class="py-1 px-4 rounded-full bg-zinc-200 font-[PoppinsRegular] text-xs cursor-pointer">{{'@'}}{{item.user.name}}</a>
+                    </div>
+                    <a [routerLink]="'/application/'+item.slug" [scrollTop]="true" class="px-4 cursor-pointer py-1 bg-black  text-white rounded-md">apply</a>
+                  </div>
+                  
+                </div>
+              }
+              
+              
+              
+              
+            </div>
+          }
+          @else { <div class="card px-3 bg-white py-4 font-[PoppinsRegular] rounded-md mx-2 my-2 overflow-hidden border hover:shadow-md transition-all duration-300">
+            <div class="card-body overflow-hidden transition-all duration-300   flex justify-center">
+                <img src="../../../assets/not-found.svg" alt="photos" class="hover:scale-110 transition-all duration-300  object-cover object-top w-[20%] h-[200px]  "/>
+            </div>
+            <div class="card-footer flex justify-between items-center gap-x-2 px-5 py-3">
+                <h1 class="text-2xl capitalize text-center mx-auto">Not Found</h1>
+                
+                    
+            </div>
+            
+ 
+ </div>}
+         
+
+    </div>
+               
+</div>}

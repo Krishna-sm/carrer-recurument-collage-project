@@ -1,0 +1,42 @@
+<div class="py-4 w-full shadow-md z-10 sticky top-0 " [class]="headerWhite?'bg-white':''" >
+    <div class="header w-[90%] mx-auto flex justify-between items-center">
+        <a [routerLink]="['/']" class="text-2xl font-[JostRegular]">CoderShala</a>
+        <ul class="flex items-center gap-x-2">
+            
+           
+           
+                    @if (user) {
+
+                        <li>
+                            <button class="text-lg bg-black outline-none text-white px-4 py-2 flex items-center rounded-md gap-x-2"   [matMenuTriggerFor]="menu">
+                                <mat-icon class="" aria-hidden="false" aria-label="Account" fontIcon="account_circle"></mat-icon><p class="text-sm capitalize">{{user.name}}</p></button>
+                                <mat-menu   className="bg-white"  #menu="matMenu" xPosition="after" class="bg-white" >
+                             
+            
+                                    <a  routerLink="/profile" class="text-sm   text-white px-4 py-2 flex items-center rounded-md gap-x-2 "  >
+                                      
+                                            <mat-icon>person</mat-icon>
+                                            <span>Profile</span>
+                                       
+                                        
+                                    </a>
+                                    <button (click)="logoutHandler()"  class="text-sm    text-white px-4 py-2 flex items-center rounded-md gap-x-2">
+                                        <mat-icon>logout</mat-icon>
+                                        <span>Logout</span>
+                                      </button>
+                                            
+                                    <!-- <button title="logout " class="text-lg bg-violet-600  text-white px-4 py-2 flex items-center rounded-md gap-x-2"  >
+                                        <mat-icon class="" aria-hidden="false" aria-label="Account" fontIcon="logout"></mat-icon><p class="text-sm">Logout</p></button> -->
+            
+                                            </mat-menu>
+                                </li>
+                            }@else{
+
+                                <li>
+            <a  [routerLink]="['/login']" class="text-lg px-4 py-2 bg-black text-white flex items-center rounded-md">
+                <mat-icon aria-hidden="false" aria-label="Login" fontIcon="login"></mat-icon></a>
+                </li>
+                            }
+        </ul>
+    </div>
+</div>

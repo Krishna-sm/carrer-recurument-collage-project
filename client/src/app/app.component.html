@@ -1,0 +1,9 @@
+<p-toast/>
+<app-header/>
+@if (isLoading) {
+    <app-loader/>
+}
+@else {
+    <router-outlet />
+}
+<app-footer/>

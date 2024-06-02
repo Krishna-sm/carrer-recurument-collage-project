@@ -1,0 +1,47 @@
+@if(loading){
+            <app-loader/>
+}
+
+@else{<div class="  flex gap-x-3 w-[90%] flex-col md:flex-row  gap-y-6 transition-all duration-300 lg:w-[90%] mx-auto  py-10 flex-wrap items-start ">
+    <div class=" w-full lg:w-[60%] flex flex-col gap-y-3 bg-white rounded-lg shadow-sm py-10 px-8">
+        <h1 class="text-5xl capitalize font-[JostLight]">{{data.title}}</h1>
+    
+            <div class="card-footer flex justify-start items-center gap-x-2">
+                <img src="https://www.recruiter.com/recruiting/wp-content/uploads/2022/06/Writing-job-descriptions-for-startups.jpg" class="w-12 h-12 object-cover object-top rounded-full" alt="">
+            <a routerLink="/company/{{data.user.id}}"  class="py-1 px-4 rounded-full bg-zinc-200 font-[PoppinsRegular] text-xs cursor-pointer">{{'@'}}{{data.user.name}}</a>
+        </div>
+   
+        <div class="py-3 flex justify-end">
+            @if (!user) {
+                <button (click)="navigateToLogin()" class="px-5 py-2 bg-violet-500 text-white flex items-center gap-x-2 "> <mat-icon fontIcon="warning" class="" /> <span>Sign Up To Apply</span> </button>
+            }
+                @else if(user && user.type==="user"){
+
+                    
+                    <a [routerLink]="['/application/'+slug+'/apply']" class="px-5 py-2 bg-red-500 text-white rounded-lg">Apply</a>
+                }
+                @else{
+                            <button class="px-5 py-2 bg-red-500 text-white flex items-center gap-x-2 "> <mat-icon fontIcon="warning" class="" /> <span>Only User Can Apply</span> </button>
+                }
+            </div>
+        <div class="w-full py-2 font-[PoppinsRegular] ">
+          {{data.short_desc}}
+        </div>
+
+        <div class="w-full py-10">
+                        <!-- chats section -->
+        </div>
+    </div>
+    <div class=" w-full font-[PoppinsRegular]  lg:w-[30%] md:h-[100vh]  overflow overflow-auto bg-white rounded-lg shadow-sm px-5 py-10 "  >
+        <div class="py-4">
+            <h1 class="text-3xl capitalize font-[PoppinsRegular]">{{data.title}} </h1>
+            <div class="flex items-center gap-x-4 py-2">
+                <p class="text-zinc-400  flex items-center gap-x-2"><ng-icon name="octCalendar"></ng-icon> <span class="text-black">{{convertDate(data.extend_date)}}</span> </p>
+                <p class="text-zinc-600  flex items-center gap-x-2"><ng-icon name="matWorkOutline"></ng-icon> <span class="text-black">1 apply</span> </p>
+            </div>
+        </div>
+                <p class="">
+                    {{data.desc}} 
+                </p>
+    </div>
+</div>}

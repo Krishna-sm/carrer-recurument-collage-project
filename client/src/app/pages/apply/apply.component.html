@@ -1,0 +1,58 @@
+@if(loading){
+    <app-loader/>
+}
+@else{
+<div class=" w-[96%] lg:w-[90%] mx-auto   my-10 py-10 flex md:flex-row flex-col transition-all duration-300 gap-y-10 gap-x-4" >
+                <form [formGroup]="application_form" (submit)="submitForm()" class=" w-full  transition-all duration-300 lg:w-[70%] md:min-h-[50vh] bg-white p-10">
+                    <div class="mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" formControlName="name" class="w-full  outline-none rounded-md px-5 py-2 border" placeholder="Enter Name">
+
+                        @if ( (application_form!.get('name')?.invalid && application_form!.get('name')?.touched) ||application_form!.get("name")?.getError('name')) {
+                            <div class="text-red-500">
+                                Enter Valid Name.
+                              </div>
+                        }
+
+                    </div>
+                                    <div class="mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="text" formControlName="email"  class="w-full  outline-none rounded-md px-5 py-2 border" placeholder="Enter Email">
+                                        @if ( (application_form!.get('email')?.invalid && application_form!.get('email')?.touched) ||application_form!.get("email")?.getError('email')) {
+                                            <div class="text-red-500">
+                                                Enter Valid Email.
+                                              </div>
+                                        }
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email">Resume</label>
+                                        <input type="file"
+                                        (change)="onFileSelect($event)"
+                                        class="w-full  outline-none rounded-md px-5 py-2 border" placeholder="Enter Email">
+                                        @if ( (application_form!.get('resume')?.invalid && application_form!.get('resume')?.touched) ||application_form!.get("resume")?.getError('resume')) {
+                                            <div class="text-red-500">
+                                                Upload Valid Resume.
+                                              </div>
+                                        }
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email">Bio</label>
+                                       <textarea rows="5" formControlName="bio" class="w-full  outline-none rounded-md px-5 py-2 border" id="" placeholder="Enter Bio"></textarea>
+                                       @if ( (application_form!.get('bio')?.invalid && application_form!.get('bio')?.touched) ||application_form!.get("bio")?.getError('bio')) {
+                                        <div class="text-red-500">
+                                            Write Valid Bio
+                                          </div>
+                                    }
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <button [disabled]="!application_form.valid" class="py-3 w-full bg-teal-500 text-white rounded-md shadow-xl">Apply</button>
+                                    </div>
+                </form>
+                <div class=" w-full  transition-all duration-300 lg:w-[30%] py-10 bg-white px-10 flex gap-y-3 flex-col font-[PoppinsRegular]">
+                <p class="text-3xl capitalize ">{{data.title}}</p>
+                    <p class="capitalize">{{data.short_desc}}</p>
+                </div>
+</div>
+}

@@ -1,0 +1,33 @@
+@font-face {
+    font-family: JostRegular;
+    src: url(  ./fonts/jost/Jost-Regular.ttf);
+}
+
+@font-face {
+    font-family: JostBold;
+    src: url(./fonts/jost/Jost-Bold.ttf);
+}
+@font-face {
+    font-family: JostBlack;
+    src: url(./fonts/jost/Jost-Black.ttf);
+}
+
+@font-face {
+    font-family: JostExtraLight;
+    src: url(./fonts/jost/Jost-ExtraLight.ttf);
+}
+@font-face {
+    font-family: JostLight;
+    src: url(./fonts/jost/Jost-Light.ttf);
+}
+
+@font-face {
+    font-family: JostSemiBold;
+    src: url(./fonts/jost/Jost-SemiBold.ttf);
+}
+
+
+@font-face {
+    font-family: PoppinsRegular;
+    src: url(./fonts/poppins/Poppins-Regular.ttf);
+}

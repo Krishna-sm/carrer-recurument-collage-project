@@ -1,0 +1,34 @@
+<div class=" py-14 bg-white text-black ">
+            <div class=" grid grid-cols-1 md:grid-cols-3  gap-x-5 gap-y-10 lg:gap-y-0  w-[96%] mx-auto  lg:w-[90%] ">
+                <div class="flex flex-col gap-y-2 px-4">
+                    <a [routerLink]="['/']" class="text-2xl font-[JostRegular]">CoderShala</a>
+
+                    <p class="text-sm lg:w-[80%]">Find Your Job</p>
+                </div>
+                <div class="flex flex-col gap-y-2 text-center lg:text-start py-3 lg:py-1">
+                    <h1 class="font-[JostSemiBold] text-lg">Links</h1>
+                    <a routerLink="/" class="font-[JostRegular] text-sm">Policy</a>
+                    <a routerLink="/" class="font-[JostRegular] text-sm">Terms & Condition</a>
+                    <a routerLink="/" class="font-[JostRegular] text-sm">Application</a>
+                </div>
+                <div class="flex flex-col gap-y-2 px-4 items-center justify-center">
+                    <p class="text-2xl font-[PoppinsRegular] text-center lg:text-start ">Subscribe</p>
+                            <div class="flex items-center gap-x-3 justify-center">
+                                <button class="p-3 items-center flex  text-2xl border hover:bg-black transition-all duration-300 hover:text-white rounded-full">
+                                    <ng-icon name="octMarkGithub"></ng-icon>
+                                </button>
+                                <button class="p-3 items-center flex  text-2xl border hover:bg-red-500 transition-all duration-300 hover:text-white rounded-full">
+                                    <ng-icon name="octMail"></ng-icon>
+                                </button>
+                                <button class="p-3 items-center flex  text-2xl border instagram  transition-all duration-300  rounded-full">
+                                    <ng-icon name="iconoirInstagram"></ng-icon>
+                                </button>
+                                
+                            </div>
+                </div>
+            </div>
+</div>
+
+<div class="py-3 w-full bg-white border-t text-center">
+    <p class="select-none">{{"@"}} Copyright {{year}} </p>
+</div>

@@ -1,0 +1,7 @@
+.mdc-icon-button {
+    color: black;
+}
+
+#diablog::-webkit-scrollbar{
+    display: none;
+}

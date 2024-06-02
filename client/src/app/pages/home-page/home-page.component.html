@@ -1,0 +1,26 @@
+@if(loading)
+{<app-loader/>}
+@else{
+
+<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-5 lg:w-[90%] mx-auto">
+
+           @for (item of arr; track item.id) {
+            <div class="card px-3 bg-white py-4 rounded-md mx-2 my-2 overflow-hidden">
+              <div class="card-body overflow-hidden transition-all duration-300   ">
+                    <img src={{image_path+item.image}} alt="photos" class="hover:scale-110 transition-all duration-300  object-cover object-top w-full h-[200px]  rounded-md hover:rounded-none">
+              </div>
+              <div class="card-footer flex justify-start items-center gap-x-2">
+                        <img src="https://www.recruiter.com/recruiting/wp-content/uploads/2022/06/Writing-job-descriptions-for-startups.jpg" class="w-12 h-12 object-cover object-top rounded-full" alt="">
+                        <a routerLink="/company/{{item.user.id}}"  class="py-1 px-4 rounded-full bg-zinc-200 font-[PoppinsRegular] text-xs cursor-pointer">{{'@'}}{{item.user.name}}</a>
+              </div>
+              <div class="mb-3 px-3 pt-3 font-[PoppinsRegular] w-full ">
+                <h1 class=" capitalize text-[15px]">{{item.title}}</h1>
+              </div>
+              <div class="card-footer flex justify-end">
+                <a [routerLink]="'/application/'+item.slug" [scrollTop]="true" class="px-4 cursor-pointer py-1 bg-black  text-white rounded-md">apply</a>
+              </div>
+        </div>
+           }
+
+</div>
+}

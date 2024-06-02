@@ -1,0 +1,61 @@
+<p-toast/>
+<div class=" bg-white py-4 px-10 font-[PoppinsRegular]">
+                <div  class="my-4 flex justify-between text-2xl border-b w-full">
+                    Add New Job
+                    <mat-icon class="cursor-pointer" (click)="onNoClick()" fontIcon="close"></mat-icon>
+                </div>
+
+                <mat-dialog-content id="diablog" style="color: black;" >
+                <form [formGroup]="jobForm" (submit)="onSubmitHandler()" class="w-full">
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_title">Job Title <span class="text-red-500">*</span> </label>
+                        <input id="job_title" formControlName="job_title" placeholder="Enter Job Title" type="text" class="w-full py-2  text-sm px-5 outline-none border rounded-md">
+                    </div>
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_extend_date">Job Extend Date <span class="text-red-500">*</span> </label>
+                        <!-- <mat-form-field> -->
+                            <!-- <input matInput [matDatepicker]="picker" placeholder="title"> -->
+                           
+                     
+                        
+                       <div class="flex">
+                        <input  matSuffix [matDatepicker]="picker" formControlName="job_extend_date" id="job_skills" placeholder="Enter Job Skills" type="text" class="w-full py-2  text-sm px-5 outline-none border rounded-md">
+                        <mat-datepicker-toggle style="color: black;" class=""  matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker  class="" style="color: black;"  #picker></mat-datepicker>
+                       </div>
+                    </div>
+
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_title">Job Poster <span class="text-red-500">*</span> </label>
+                       <div class="flex items-center gap-x-2">
+                        <input id="job_poster" name="job_poster" (change)="onFileSelect($event)" placeholder="Enter Job Poster" type="file" class="w-full py-2  text-sm px-5 outline-none border rounded-md">
+                        <div class="border ">
+                            <img src={{image}}  accept="image/*" class="w-20 h-18" alt="" srcset="">
+                        </div>
+                       </div>
+                    </div>
+
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_about">About Job <span class="text-red-500">*</span> </label>
+                        <textarea  formControlName="job_short" id="job_about" placeholder="Enter Job About" rows="3" class="w-full py-2  text-sm px-5 outline-none border rounded-md"></textarea>
+                    </div>
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_desc">Job Description <span class="text-red-500">*</span> </label>
+                        <textarea formControlName="job_desc" id="job_desc" placeholder="Enter Job Title" rows="3" class="w-full py-2  text-sm px-5 outline-none border rounded-md"></textarea>
+                    </div>
+                    <div class="mb-3 w-full flex flex-col gap-y-2">
+                        <label for="job_skills">Requirement Skills  <span class="text-red-500">*</span> </label>
+                        <input formControlName="job_skills" id="job_skills" placeholder="Enter Job Skills" type="text" class="w-full py-2  text-sm px-5 outline-none border rounded-md">
+                    </div>
+
+                    <div class="mb-3 w-full font-[JostRegular]">
+                        <button [disabled]="!jobForm.valid" class=" bg-black flex items-center gap-x-2 disabled:bg-zinc-900 justify-center rounded-md text-white text-center w-full py-3 ">
+                                @if(loading){loading...}@else {
+                                    Add <mat-icon fontIcon="task_alt"></mat-icon>
+                                }
+                        </button>
+                    </div>
+                    
+                </form>
+            </mat-dialog-content>
+</div>

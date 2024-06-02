@@ -1,0 +1,71 @@
+<p-toast/>
+<div class="w-full flex items-center justify-center min-h-[80vh]">
+    <form [formGroup]="loginForm" (submit)="submitForm()" class=" w-full transition-all duration-300 md:w-1/2 lg:w-1/3 mx-auto bg-white py-2 px-4">
+                        <div class="pb-3 border-b my-4">
+                            <h1 class="text-3xl text-start">Register</h1>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" formControlName="name" id="name" class="w-full bg-white text-black border-[.2px] border-black rounded-md outline-none py-2 px-4" placeholder="Enter Your Name">
+                        
+                                @if ( (loginForm!.get('name')?.invalid && loginForm!.get('name')?.touched) ||loginForm!.get("name")?.getError('name')) {
+                                    <div class="text-red-500">
+                                        Enter Valid Name.
+                                      </div>
+                                }
+                                
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email">Email</label>
+                            <input type="text" formControlName="email" id="Email" class="w-full bg-white text-black border-[.2px] border-black rounded-md outline-none py-2 px-4" placeholder="Enter Email">
+                        
+                                @if ( (loginForm!.get('email')?.invalid && loginForm!.get('email')?.touched) ||loginForm!.get("email")?.getError('email')) {
+                                    <div class="text-red-500">
+                                        Enter Valid Email.
+                                      </div>
+                                }
+                                
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">Password</label>
+                            <input type="text" formControlName="password" id="password"  class="w-full bg-white text-black border-[.2px] border-black rounded-md outline-none py-2 px-4" placeholder="Enter Password">
+                            @if ((loginForm!.get('password')?.invalid&& loginForm!.get('password')?.touched) || loginForm!.get("password")?.getError('password')) {
+                                <div class="text-red-500 px-4">
+                                    <ul class="list-disc">
+                                        <li>Enter Secure Password.</li>
+                                        <li>Password min 6 Characters.</li>
+                                    </ul>  
+                                  </div>
+                            }
+                        
+                        </div>
+                        <div class="mb-3">
+                            <label for="type">Type</label>
+                            <select  formControlName="type" id="type"  class="w-full bg-white text-black border-[.2px] border-black rounded-md outline-none py-2 px-4">
+                                <option value="" >select...</option>
+                                <option   value="user">user</option>
+                                <option value="company">Company</option>
+                                
+                            </select> 
+                            @if ((loginForm!.get('type')?.invalid&& loginForm!.get('type')?.touched) || loginForm!.get("type")?.getError('type')) {
+                                <div class="text-red-500 px-4">
+                                    <ul class="list-disc">
+                                        <li>Select Correct Type</li>
+                                        
+                                    </ul>  
+                                  </div>
+                            }
+                        
+                        </div>
+
+                        <div class="mb-3">
+                            <button [disabled]="!loginForm.valid || loading" class="w-full disabled:bg-zinc-700 bg-black rounded-lg text-white py-3">
+{{!loading?'Register':'loading...'}}                            </button>
+                        </div>
+                        <div class="mb-3 ">
+                            <p class="text-end">Already Have An Account  <a [routerLink]="['/login']">Login ?</a></p>
+                        </div>
+    </form>
+</div>
